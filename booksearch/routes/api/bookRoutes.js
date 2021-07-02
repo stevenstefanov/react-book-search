@@ -20,7 +20,7 @@ router.post('/', cors(), async (req, res) => {
     }
 });
 
-router.delete('/:id', cores(), async (req, res) => {
+router.delete('/:id', cors(), async (req, res) => {
     try {
         const deleteBook = await Book.deleteOne({ google: req.params.id });
         res.json(deleteBook);

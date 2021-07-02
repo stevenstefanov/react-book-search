@@ -1,5 +1,5 @@
 const path = require('path');
-const exporess = require('express');
+const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
     useFindAndModify: false,
 });
 
-if (process.end.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
