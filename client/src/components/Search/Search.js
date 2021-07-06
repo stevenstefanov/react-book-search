@@ -45,7 +45,7 @@ const Search = ({ input, setInput, setResults }) => {
             </Button>{' '}
           </div>
           {err === 'err' && (
-            <Alert variant='danger'>Oops! You gotta give me something!</Alert>
+            <Alert variant='danger'>Oops! Please search for something!</Alert>
           )}
         </Form.Group>
       </Form>
