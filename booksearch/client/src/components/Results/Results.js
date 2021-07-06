@@ -6,7 +6,7 @@ import API from '../../utils/API';
 import './results.css';
 
 const Results = ({ results }) => {
-  const [liked, setLiked] = useState([]);
+  const [liked, setLiked] = useState([""]);
 
   const saveBook = (book) => {
     API.saveNewBook({
@@ -32,6 +32,10 @@ const Results = ({ results }) => {
     removeBook(book);
   };
 
+  console.log(results);
+
+if (results.length > 0) {
+
   return (
     <div className='row'>
       {results.map((book) => {
@@ -49,14 +53,20 @@ const Results = ({ results }) => {
               />
               <Card.Body className='w-100'>
                 <Card.Title>{book.volumeInfo.title}</Card.Title>
+                {results.length > 0 ? 
+                <div>
+                {console.log(results.length)}
                 <Card.Text>
-                  by{' '}
-                  {book.volumeInfo.authors.map((auth, index) => (
-                    <span key={`${book.id}-auth-${index}`}>
-                      {book.volumeInfo.authors.length > 1 ? `|${auth}|` : auth}
-                    </span>
-                  ))}
-                </Card.Text>
+                by{' '}
+                {book.volumeInfo.authors.map((auth, index) => (
+                  <span key={`${book.id}-auth-${index}`}>
+                    {book.volumeInfo.authors.length > 1 ? `|${auth}|` : auth}
+                  </span>
+                ))}
+              </Card.Text>
+              </div>
+              : <div></div>} 
+                
                 <hr />
                 <div className='d-flex align-items-center results-links'>
                   {!liked.includes(book.id) && (
@@ -91,7 +101,14 @@ const Results = ({ results }) => {
         );
       })}
     </div>
-  );
+  );}
+  else {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
 };
 
 export default Results;
