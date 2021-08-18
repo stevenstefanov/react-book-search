@@ -1,3 +1,4 @@
+// Import dependencies
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Header from '../../components/Header/Header';

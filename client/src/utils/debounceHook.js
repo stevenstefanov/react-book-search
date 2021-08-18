@@ -1,3 +1,4 @@
+// Import dependencies
 import { useEffect, useState } from 'react';
 
 const useDebounce = (value, delay) => {

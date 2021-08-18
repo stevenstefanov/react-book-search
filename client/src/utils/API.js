@@ -1,3 +1,4 @@
+// Import dependencies
 import axios from 'axios';
 
 const API = {
